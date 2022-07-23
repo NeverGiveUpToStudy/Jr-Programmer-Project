@@ -2,7 +2,9 @@ using System.IO;
 using UnityEngine;
 
 public class MainManager : MonoBehaviour {
-    public static MainManager Instance;
+
+    // Instance被封装为只接受它自己的类的修改,免受外部世界的误用和破坏!
+    public static MainManager Instance { get; private set; }
 
     public Color TeamColor;//新的变量
 
