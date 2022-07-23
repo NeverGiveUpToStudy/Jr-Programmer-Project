@@ -54,18 +54,18 @@ public class OptimUnit : MonoBehaviour {
         Profiler.BeginSample("Boundary Check");
 
         //check if we are moving away from the zone and invert velocity if this is the case
-        if (transform.position.x > areaSize.x && currentVelocity.x > 0) {
+        if (currentPosition.x > areaSize.x && currentVelocity.x > 0) {
             currentVelocity.x *= -1;
             PickNewVelocityChangeTime(); //we pick a new change time as we changed velocity
-        } else if (transform.position.x < -areaSize.x && currentVelocity.x < 0) {
+        } else if (currentPosition.x < -areaSize.x && currentVelocity.x < 0) {
             currentVelocity.x *= -1;
             PickNewVelocityChangeTime();
         }
 
-        if (transform.position.z > areaSize.z && currentVelocity.z > 0) {
+        if (currentPosition.z > areaSize.z && currentVelocity.z > 0) {
             currentVelocity.z *= -1;
             PickNewVelocityChangeTime(); //we pick a new change time as we changed velocity
-        } else if (transform.position.z < -areaSize.z && currentVelocity.z < 0) {
+        } else if (currentPosition.z < -areaSize.z && currentVelocity.z < 0) {
             currentVelocity.z *= -1;
             PickNewVelocityChangeTime();
         }
@@ -92,7 +92,7 @@ public class OptimUnit : MonoBehaviour {
     }
 
     private void Move() {
-        Vector3 position = transform.position;
+        //Vector3 position = transform.position;
 
         //float distanceToCenter = Vector3.Distance(Vector3.zero, position);
         //float speed = 0.5f + distanceToCenter / areaSize.magnitude;
